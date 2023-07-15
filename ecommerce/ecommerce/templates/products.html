@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{{c.image.url}}" height="500px" width="1471px">
+</div>
+<center>
+    <div style="margin-bottom:100px">
+        <h2>{{c.name}}</h2>
+<p style="text-align:bold" class="text-justify"></p>
+    </div>
+</center>
+<br><br>
+<div class="container" style="margin-bottom:100px;">
+    <div class="row mx-auto">
+{% for i in p %}
+        <div class="card" style="width:20rem;">
+            <img src="{{i.image.url}}" style="height:250px;width:100%;" class="card-img-top" alt="{{i.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <a href="{% url 'shop:prodetail' i.slug %}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+{% endfor %}
+    </div>
+</div>
+{% endblock %}

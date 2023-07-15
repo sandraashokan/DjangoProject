@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'image/banner.jpg' %}" height="500px" width="1471px">
+</div>
+<center>
+    <div style="margin-bottom:100px;border:2px solid blue;">
+<p style="text-align:bold" class="text-justify"> best exchange deals on Smartphones<br>
+    Exclusive offers, rewards & suggestions for you
+</p>
+    </div>
+</center>
+<br><br>
+<div class="container mt-3" style="margin-bottom:100px;">
+    <div class="row">
+        {% for i in c %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{i.image.url}}" class="card-img-top" alt="{{i.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <a href="{% url 'shop:allproducts' i.slug %}" class="btn btn-primary">Shop now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
